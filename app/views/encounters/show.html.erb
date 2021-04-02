@@ -1,3 +1,6 @@
 <br>
 <br>
 <%= render 'character_display' %><br>
+<br>
+<br>
+<%= button_to "Start Combat Round", @encounter, method: :get, action:"/encounters/enter_combat/#{params[:id]}" %>
