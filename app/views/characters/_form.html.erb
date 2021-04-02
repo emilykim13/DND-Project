@@ -31,9 +31,6 @@
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-center">
-
-   
-    
     <h1> Character Information: </h1>
     <ul>
 <%= form_for @character do |f| %>
@@ -57,7 +54,6 @@
     <%= f.number_field :max_hp %> <br><br>
     <%= f.label :current_hp %>
     <%= f.number_field :current_hp %> <br><br>
-
     <%= f.label :user_id %>
     <%= f.collection_select :user_id, @user, :id, :username %>
     <%= f.label :campaign_id %>
