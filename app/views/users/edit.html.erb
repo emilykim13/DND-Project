@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-
+<body>
 
 
 <header class="w3-container w3-theme w3-padding" id="myHeader">
@@ -17,32 +17,34 @@
   <h6>A Flatiron School Phase 2 Project Made by:</h6>
   <h6> Emily Nguyen & Nestor Venegas</h6>
   <br><br><br><br>
-  <h6>An enemy has appeared! Deal with it.</h6>
+  <h6> You may edit your account information below.</h6>
     <div class="w3-padding-32">
     </div>
   </div>
 </header>
-<br><br><br><br><br>
-<%= render 'enemy_display' %>
-<%= render 'character_display' %>
+<br><br>
 
-<div class="w3-padding-128 w3-container">
-  <div class="w3-content">
-    <div class="w3-center">
-    <h3> Enter When Ready </h3>
-        <%= button_to "Start Combat", method: :get, action:"enter_combat" %>
-    
-</div>
-</div>
-</div><br><br><br><br><br><br><br><br><br>
+<div class="w3-center">
+<h1> Edit Account Information </h1>
+<%= form_for @user do |f|%>
 
+        <%= f.label :username %><br>
+        <%= f.text_field :username%><br><br>
+        <%= f.label :password_confirmation, "Current Password"%><br>
+        <%= f.password_field :password_confirmation, class:"form-control" %><br>
+        <small>
+            To update your password, please enter your current password.
+        </small><br><br>
+            <%= f.label :password, "New Password"%><br>
+            <%= f.password_field :password %><br><br>
+
+    <%= f.submit "Update"%>
+<% end %>
+</div>
 <hr>
-<div class="w3-padding-128 w3-container">
-  <div class="w3-content">
-    <div class="w3-center">
+<br><br>
+<header class="w3-center">
 <h3> Go back to home </h3>
 <%= button_to 'Go back', root_path, method: :get %> <br><br><br><br>
-</div>
-</div>
-</div>
 
+</header

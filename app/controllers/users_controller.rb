@@ -17,6 +17,17 @@ class UsersController < ApplicationController
       redirect_to controller: 'welcome', action: 'home'
     end
 
+    def edit
+    end
+
+    def update
+      if @user.update(user_params)
+        redirect_to root_path
+      else
+        render :edit
+      end
+    end
+
     def destroy
       @user.delete
       redirect_to root_path

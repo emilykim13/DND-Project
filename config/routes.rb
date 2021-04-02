@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   get  '/encounters/enter_combat/:id' => 'encounters#enter_combat'
+  post '/encounters/enter_combat/:id' => 'encounters#enter_combat'
   get  '/encounters/in_combat/:id' => 'encounters#in_combat'
   get  '/encounters/end_combat/:id'=> 'encounters#end_combat'
   post  '/encounters/escape_combat/:id'=> 'encounters#escape_combat'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   post '/equipweapon/:character_id' => 'characters#weapon'
   get '/equipshield' => 'characters#equip_shield'
   post '/equipshield/:character_id' => 'characters#shield'
+  get '/newencounter/:id' => 'characters#new_encounter'
+  post '/newencounter/:id' => 'characters#new_encounter'
 
   get '/instructions' => 'welcome#howtoplay'
   

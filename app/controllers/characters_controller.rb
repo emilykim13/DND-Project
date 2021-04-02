@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-    before_action :find_character, only: [:show, :edit, :update, :destroy]
+    before_action :find_character, only: [:show, :edit, :update, :destroy, :new_encounter]
     before_action :inventory, only: [:show]
     # before_action :instances, only: [:show, :edit, :update, :destroy]
     # before_action :weapon, only: [:update, :edit]
@@ -20,11 +20,13 @@ class CharactersController < ApplicationController
 
     def new
         @character = Character.new
+        @user = [User.find(session[:user_id])]
     end
 
     def create 
        @character = Character.create(character_params)
-       @character.save
+       @user = [User.find(session[:user_id])]
+      #  @character.save
         # byebug
        redirect_to @character
     end
@@ -34,8 +36,16 @@ class CharactersController < ApplicationController
     #     redirect_to @character
     # end
 
+    def edit
+      @character = Character.find(params[:id])
+      @user = [User.find(session[:user_id])]
+    end
+
+
     def update
-        @character = Character.create(character_params)
+      # byebug
+      
+        @character.update(character_params)
         if @character.valid?
             redirect_to @character
         else
@@ -91,6 +101,12 @@ class CharactersController < ApplicationController
       end
     end
 
+    def new_encounter
+      @encounter = Encounter.create(character: @character, enemy: Enemy.enemy_generator( @character.level, @character.campaign, @character.user ) )
+      redirect_to encounter_path(@encounter)
+    end
+
+
     private 
 
     def find_character
@@ -98,7 +114,7 @@ class CharactersController < ApplicationController
     end
 
     def character_params
-        params.require(:character).permit(:name, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :armor_rating, :challenge_rating, :max_hp, :current_hp, :experience_value, :user_id, :campaign_id, :item_ids => [], items_attributes: [:name, :cost, :weight, :damage_dice, :roll, :armor])
+        params.require(:character).permit(:name, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :armor_rating, :max_hp, :current_hp, :user_id, :campaign_id, :item_ids => [], items_attributes: [:name, :cost, :weight, :damage_dice, :roll, :armor])
     end
 
 

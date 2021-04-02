@@ -60,13 +60,13 @@ class EncountersController < ApplicationController
     end
 
     def character_heal
-        @encounter.heal_character(rand(1..10) )
+        @encounter.heal_character(rand(1..25) )
         @encounter.cycle_turn
         redirect_to "/encounters/in_combat/#{params[:id]}"
     end
 
     def enemy_heal
-        @encounter.heal_enemy(rand(1..10) )
+        @encounter.heal_enemy(rand(1..25) )
         @encounter.cycle_turn
         redirect_to "/encounters/in_combat/#{params[:id]}"
     end

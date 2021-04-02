@@ -52,9 +52,9 @@
 
 <div class="w3-row-padding w3-center w3-margin-top">
 <h1> Character's Inventory </h1>
-<div class="w3-third">
+<div class="w3-center">
   <div class="w3-card w3-container" style="min-height:460px">
-  <h3>Test</h3><br>
+  <h3>Character's Items</h3><br>
   <i  style="font-size:120px"></i>
 <% @inventory.each do |o|%>
 <li><strong><%= o.name %></strong></li>
@@ -65,8 +65,12 @@
 <% end %>
   </div>
 </div>
-
-<br><br><br><br><br><br><br><br>
+</div>
+<div class="w3-row-padding w3-center w3-margin-top">
+<h1> Equip Items </h1>
+<div class="w3-center">
+  <div class="w3-card w3-container" style="min-height:460px">
+<br><br><br><br><br>
 <%= form_for @character, url: "/equipweapon/#{@character.id}", method: :post, action: @character do |f| %>
 <h3> Select your weapon </h3>
 <%= f.collection_select :item_ids, @inventory.select {|item| item.damage_dice >= 4}, :id, :name %><br><br>
@@ -76,10 +80,23 @@
 <%= form_for @character, url: "/equipshield/#{@character.id}", method: :post do |f| %>
 <h3> Select your armor </h3>
 <%= f.collection_select :item_ids, @inventory.select {|item| item.armor >= 11}, :id, :name %><br><br>
-<%= f.submit "Equip Armor" %>
+<%= f.submit "Equip Armor" %><br><br><br><br>
 <% end %>
 </div>
+</div>
+</div>
 <hr>
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-center">
+<h3> Enter Arena </h3>
+      <%= button_to "Start Combat",  method: :get, action:'new_encounter' %>
+  </div>
+</div>
+</div>
+
+
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-center">
@@ -87,5 +104,15 @@
 <%= button_to 'Edit Character', edit_character_path, method: :get %><br><br>
 <%= button_to "Delete Character", @character, method: 'delete' %>
     </div>
+</div>
+</div>
+
+
+<div class="w3-padding-128 w3-container">
+  <div class="w3-content">
+    <div class="w3-center">
+<h3> Go back to home </h3>
+<%= button_to 'Go back', root_path, method: :get %> <br><br><br><br>
+</div>
 </div>
 </div>
