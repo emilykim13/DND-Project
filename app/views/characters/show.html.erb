@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-
-Emily Nguyen  9:32 PM
-<h1> <%= @character.name %> </h1>
-<h1> <%= @character.current_hp%> / <%= @character.max_hp %> </h1>
-<h4> Armor Class: <%= @character.armor_rating %> Total Experiance: <%= @character.experience %> </h4><br>
-<%= button_to 'Edit Character', edit_character_path, method: :get %>
-<%= button_to "Delete Character", @character, method: 'delete' %>
-=======
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -41,7 +32,6 @@ Emily Nguyen  9:32 PM
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-center">
->>>>>>> master
 <hr>
 <h1> Character's Attributes </h1> 
 <h3><%= @character.name %>'s Core Stats </h3>
@@ -62,9 +52,9 @@ Emily Nguyen  9:32 PM
 
 <div class="w3-row-padding w3-center w3-margin-top">
 <h1> Character's Inventory </h1>
-<div class="w3-third">
+<div class="w3-center">
   <div class="w3-card w3-container" style="min-height:460px">
-  <h3>Test</h3><br>
+  <h3>Character's Items</h3><br>
   <i  style="font-size:120px"></i>
 <% @inventory.each do |o|%>
 <li><strong><%= o.name %></strong></li>
@@ -75,8 +65,12 @@ Emily Nguyen  9:32 PM
 <% end %>
   </div>
 </div>
-
-<br><br><br><br><br><br><br><br>
+</div>
+<div class="w3-row-padding w3-center w3-margin-top">
+<h1> Equip Items </h1>
+<div class="w3-center">
+  <div class="w3-card w3-container" style="min-height:460px">
+<br><br><br><br><br>
 <%= form_for @character, url: "/equipweapon/#{@character.id}", method: :post, action: @character do |f| %>
 <h3> Select your weapon </h3>
 <%= f.collection_select :item_ids, @inventory.select {|item| item.damage_dice >= 4}, :id, :name %><br><br>
@@ -86,10 +80,14 @@ Emily Nguyen  9:32 PM
 <%= form_for @character, url: "/equipshield/#{@character.id}", method: :post do |f| %>
 <h3> Select your armor </h3>
 <%= f.collection_select :item_ids, @inventory.select {|item| item.armor >= 11}, :id, :name %><br><br>
-<%= f.submit "Equip Armor" %>
+<%= f.submit "Equip Armor" %><br><br><br><br>
 <% end %>
 </div>
+</div>
+</div>
 <hr>
+
+
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-center">
@@ -97,5 +95,15 @@ Emily Nguyen  9:32 PM
 <%= button_to 'Edit Character', edit_character_path, method: :get %><br><br>
 <%= button_to "Delete Character", @character, method: 'delete' %>
     </div>
+</div>
+</div>
+
+
+<div class="w3-padding-128 w3-container">
+  <div class="w3-content">
+    <div class="w3-center">
+<h3> Go back to home </h3>
+<%= button_to 'Go back', root_path, method: :get %> <br><br><br><br>
+</div>
 </div>
 </div>
