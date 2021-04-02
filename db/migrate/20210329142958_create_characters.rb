@@ -3,7 +3,11 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
     create_table :characters do |t|
       t.string :name
       t.integer :level, default: 1
-      t.integer :damage, default: 1
+      #t.string :class, default: "Fighter"
+      #t.string :race, default: "Human"
+      t.integer :damage, default:1
+      #t.integer :dice_rolls, default: 1
+      #t.integer :damage_dice, default: 1 
       t.integer :strength
       t.integer :dexterity
       t.integer :constitution

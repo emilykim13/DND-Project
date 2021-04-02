@@ -53,11 +53,6 @@ MVP
 <!-- * Enemy stats can decrease   -->
 <!-- * Enemy can die -->
 
-
-# Campaign
-* Create a campaign
-
-
 ### Stretch
 
 # Items
@@ -74,7 +69,3 @@ Stretch
 * Items affect player weight
 * Items can be perishable
     
-# Chat Room
-
-MVP
-* Displayes User Messages

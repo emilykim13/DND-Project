@@ -13,14 +13,14 @@
         </div>
         <br>
     <% else %>
-         <% if @enemy.roll_20 == 1..18 %>
+         <% if @encounter.roll_20 < 18 %>
             <div class='enemy_attack'>
-                <%= button_to "Continue", action:'enemy_attack' %>
+                <%= button_to "attack", action:'enemy_attack' %>
             </div>
             <br>
         <% else %> 
             <div class='enemy_heal'>
-                <%= button_to "Continue", action:'enemy_heal' %>
+                <%= button_to "heal", action:'enemy_heal' %>
             </div>
             <br>
         <% end %>     

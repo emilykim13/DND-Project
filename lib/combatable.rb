@@ -31,12 +31,12 @@ module Combatable
             self.current_hp -= damage_roll ; self.hp_range ; self.save
         end
 
-        def  melee_damage(roll, dice) #used for melee weapons
-            (roll * rand(1..dice)) + modifier(self.strength)
+        def  melee_damage(roll) #used for melee weapons
+            (roll * rand(1..self.damage)) + modifier(self.strength)
         end
 
-        def  range_damage(roll, dice) #used for ranged weapons
-            (roll * rand(1..dice)) + modifier(self.dexterity)
+        def  range_damage(roll) #used for ranged weapons
+            (roll * rand(1..self.damage)) + modifier(self.dexterity)
         end
 
         def roll_strength #use for melee attack rolls and any strength checks

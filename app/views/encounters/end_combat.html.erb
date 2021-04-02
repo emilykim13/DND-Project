@@ -1,6 +1,16 @@
 <br><br>
 <% if @character.alive? %>
-<h1> Howdy Pardern! <h1>
+    <div>
+        <h1> Howdy Pardern! <h1>
+        <br><br>
+        <%= button_to "Next Combat Round", action:'next_encounter' %>
+        <br><br>
+    </div>
 <% else %>
-<h1> You've Yee'd your last Haw! </h1>
+    <div>
+        <h1> You've Yee'd your last Haw! </h1>
+        <br><br>
+        <-- %= button_to "oof", action: character_path(@character) %>
+        <br><br>
+    </div>    
 <% end %>

@@ -18,7 +18,6 @@ class CharactersController < ApplicationController
         # byebug
     end
 
-
     def new
         @character = Character.new
     end

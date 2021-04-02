@@ -9,16 +9,16 @@ class Encounter < ApplicationRecord
        self.character.roll_strength > self.enemy.armor_rating   
     end
 
-    def character_attack(roll, dice)
-        self.enemy.take_damage(self.character.melee_damage(roll,dice))
+    def character_attack(roll)
+        self.enemy.take_damage(self.character.melee_damage(roll))
     end 
 
     def enemy_attack_lands?
         self.enemy.roll_strength > self.character.armor_rating   
     end
 
-    def enemy_attack(roll, dice)
-        self.character.take_damage(self.enemy.melee_damage(roll,dice))
+    def enemy_attack(roll)
+        self.character.take_damage(self.enemy.melee_damage(roll))
     end 
 
     def still_fighting?

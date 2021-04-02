@@ -33,10 +33,9 @@ class EncountersController < ApplicationController
         end
     end    
             
-
     def character_attack 
        if @encounter.character_attack_lands?
-            @encounter.character_attack(1, 6)
+            @encounter.character_attack(1)
             flash[:alert] = "attack Landed"
             @encounter.cycle_turn
             redirect_to "/encounters/in_combat/#{params[:id]}"
@@ -49,7 +48,7 @@ class EncountersController < ApplicationController
 
     def enemy_attack
         if @encounter.enemy_attack_lands?
-            @encounter.enemy_attack(1, 6)
+            @encounter.enemy_attack(1)
             flash[:alert] = " attack Landed"
             @encounter.cycle_turn
             redirect_to "/encounters/in_combat/#{params[:id]}"
@@ -72,6 +71,10 @@ class EncountersController < ApplicationController
         redirect_to "/encounters/in_combat/#{params[:id]}"
     end
 
+    def next_encounter
+        @new_encounter = Encounter.create(character: @character, enemy: Enemy.enemy_generator( @character.level, @character.campaign, @character.user ) )
+        redirect_to encounter_path(@new_encounter)
+    end
 
     private
 
@@ -90,6 +93,9 @@ class EncountersController < ApplicationController
         def encounter_params
             params.require(:encounter).permit(:character, :enemy)
         end
+
+        
+
 
    
 end

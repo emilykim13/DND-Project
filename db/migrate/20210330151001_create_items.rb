@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.float :weight
       t.integer :damage_dice, default: 0 # 4 6 8 10 12
       t.integer :roll, default: 1
-      t.integer :armor, default: 0 # lowest is 11
+      t.integer :armor, default: 0 # lowest is 11 (2 for shield)
 
       t.timestamps
     end
