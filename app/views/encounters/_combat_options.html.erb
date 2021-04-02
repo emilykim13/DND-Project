@@ -1,4 +1,18 @@
+
 <div>
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="w3-padding-128 w3-container">
+  <div class="w3-content">
+    <div class="w3-center">
+    <h3> Select your action </h3>
     <% if  @encounter.participant == @character%>
         <div class='character_attack'>
             <%= button_to "Attack #{@enemy.name}", action:'character_attack' %>
@@ -25,4 +39,16 @@
             <br>
         <% end %>     
     <% end %>
-</div><br>
+</div>
+</div>
+</div><br><br><br><br><br><br><br><br><br>
+
+<hr>
+<div class="w3-padding-128 w3-container">
+  <div class="w3-content">
+    <div class="w3-center">
+<h3> Go back to home </h3>
+<%= button_to 'Go back', root_path, method: :get %> <br><br><br><br>
+</div>
+</div>
+</div>

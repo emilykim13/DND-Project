@@ -48,8 +48,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <h3> Create a new Character </h3>
       <%= button_to 'Create Character', new_character_path, method: :get %><br><br>
       <%= button_to 'My Characters List', characters_path, method: :get %><br><br>
+      
+      <h3> Edit your account </h3>
+      <%= button_to "Edit Account", edit_user_path(@user), method: 'get' %><br><br>
+
       <h3> Delete your account </h3>
       <%= button_to "Delete Account", @user, method: 'delete' %><br><br>
+
 
 
       <h3> Logout </h3>

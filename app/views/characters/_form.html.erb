@@ -57,35 +57,14 @@
     <%= f.number_field :max_hp %> <br><br>
     <%= f.label :current_hp %>
     <%= f.number_field :current_hp %> <br><br>
-    <%= f.label :experience %>
-    <%= f.number_field :experience %> <br><br>
 
     <%= f.label :user_id %>
-    <%= f.collection_select :user_id , User.all, :id, :username%> <br><br>
+    <%= f.collection_select :user_id, @user, :id, :username %>
     <%= f.label :campaign_id %>
     <%= f.collection_select :campaign_id, Campaign.all, :id, :title %> <br><br> </ul>
   </div>
 </div>
 </div>
-
-<div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-top">
-      <header class="w3-container w3-theme-l1"> 
-        <span onclick="document.getElementById('id01').style.display='none'"
-        class="w3-button w3-display-topright">×</span>
-        <h4>Oh snap! We just showed you a modal..</h4>
-        <h5>Because we can <i class="fa fa-smile-o"></i></h5>
-      </header>
-      <div class="w3-padding">
-        <p>Cool huh? Ok, enough teasing around..</p>
-        <p>Go to our <a class="w3-btn" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
-      </div>
-      <footer class="w3-container w3-theme-l1">
-        <p>Modal footer</p>
-      </footer>
-    </div>
-</div>
-
 
 
 <div class="w3-row-padding w3-center w3-margin-top">
@@ -232,7 +211,12 @@
 
 
 
-
+<div class="w3-padding-128 w3-container">
+  <div class="w3-content">
+    <div class="w3-center">
 <h3> Go back to home </h3>
 <%= button_to 'Go back', root_path, method: :get %> <br><br><br><br>
+</div>
+</div>
+</div>
 

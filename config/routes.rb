@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
-<<<<<<< HEAD
   get  '/encounters/enter_combat/:id' => 'encounters#enter_combat'
   get  '/encounters/in_combat/:id' => 'encounters#in_combat'
   get  '/encounters/end_combat/:id'=> 'encounters#end_combat'
@@ -17,7 +16,6 @@ Rails.application.routes.draw do
   post '/encounters/enemy_heal/:id' => 'encounters#enemy_heal'
 
 
-=======
   # get '/equipweapon' => 'sessions#equip_weapon'
   # post '/equipweapon/:character_id' => 'sessions#weapon'
   # get '/equipshield' => 'sessions#equip_shield'
@@ -30,7 +28,6 @@ Rails.application.routes.draw do
 
   get '/instructions' => 'welcome#howtoplay'
   
->>>>>>> master
   resources :users
   resources :characters
   resources :enemies
